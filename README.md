@@ -22,7 +22,7 @@ __3. Run main__
 https://github.com/microsoft/api-guidelines
 
 ## Environment
-* ##### python 2.7 / 3.6
+* ##### python 3.6
 
 ## References
 RESTful APIs with Python and Flask - [[Link]](https://www.codementor.io/@dongido/how-to-build-restful-apis-with-python-and-flask-12qto530jd)
