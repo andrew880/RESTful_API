@@ -14,8 +14,8 @@ class Users(Resource):
         data_.to_json('resources/users.json')
         # data_.to_csv('users.json', index=False) 
         return data_
+
     def get(self):
-        print("get")
         parser = reqparse.RequestParser()  # initialize
         parser.add_argument('userId', required=False)  # add args
         parser.add_argument('name', required=False)
@@ -25,10 +25,8 @@ class Users(Resource):
         data = self.__read()  # read local json
         data = data.to_dict()  # convert dataframe to dict
         ret_data = {}
-        # print(args)
         
-        if args['userId']==None and args['name']==None and args['city']==None:
-            # print("OAO")
+        if args['userId']==None and args['name']==None and args['city']==None: #check if specifying userId
             return {'data': data}, 200  # return data and 200 OK
         else: 
             if args['userId'] in list(data['userId'].values()):
@@ -50,8 +48,6 @@ class Users(Resource):
         parser.add_argument('city', required=True)
         args = parser.parse_args()  # parse arguments to dictionary
 
-        print("posting")
-        # read our CSV
         data = self.__read()
 
         if args['userId'] in list(data['userId']):
